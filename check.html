@@ -1,0 +1,60 @@
+<!-- <html>
+    <head>
+        <title>Selecting or deselecting all CheckBoxes</title>  
+        <script type="text/javascript">  
+        
+            function selects(){  
+                var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=true;  
+                }  
+            }  
+            function deSelect(){  
+                var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=false;  
+                      
+                }  
+            }             
+        </script>            
+    </head>
+    <body>
+        <h3>Select or Deselect all or some checkboxes as per your mood:</h3>  
+        <input type="checkbox" name="chk" value="Smile">1<br>  
+        <input type="checkbox" name="chk" value="Cry">2<br>  
+        <input type="checkbox" name="chk" value="Laugh">3<br>  
+        <input type="checkbox" name="chk" value="Angry">4<br>  
+         <br>  
+            <input type="checkbox" onclick='selects()' value="Select All"/>Select All
+            <input type="checkbox" onclick='deSelect()' value="Deselect All"/> Deselect
+    </body>
+</html> -->
+
+
+<html> 
+<body>
+<button id="debounce">
+    Debounce
+</button>
+<script>
+var button = document.getElementById("debounce");
+const debounce = (func, delay) => {
+    let debounceTimer
+    return function() {
+        const context = this
+        const args = arguments
+            clearTimeout(debounceTimer)
+                debounceTimer
+            = setTimeout(() => func.apply(context, args), delay)
+    }
+} 
+button.addEventListener('click', debounce(function() {
+        alert("Hello\nNo matter how many times you" +
+            "click the debounce button, I get " +
+            "executed once every 3 seconds!!")
+                        }, 3000));
+</script>
+</body>
+</html>
